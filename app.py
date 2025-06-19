@@ -1,10 +1,17 @@
 import streamlit as st
 import numpy as np
 import joblib
+# Load model
+@st.cache_resource
+def load_model():
+    return joblib.load("best_gradient_boosting_model.pkl")
 
 # Load saved model
 #model = joblib.load(r'best_gradient_boosting_model.pkl')
-model = joblib.load('/mnt/data/best_gradient_boosting_model.pkl')
+#model = joblib.load('/mnt/data/best_gradient_boosting_model.pkl')
+
+
+model = load_model()
 
 st.title("🏥 Insurance Charges Prediction App")
 st.subheader("Enter the following details:")
