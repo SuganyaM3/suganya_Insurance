@@ -1,17 +1,29 @@
 import streamlit as st
 import numpy as np
 import joblib
-# Load model
-@st.cache_resource
-def load_model():
-    return joblib.load("best_gradient_boosting_model.pkl")
+import os
 
+# Load model
+#@st.cache_resource
+#def load_model():
+#    return joblib.load("best_gradient_boosting_model.pkl")
 # Load saved model
 #model = joblib.load(r'best_gradient_boosting_model.pkl')
 #model = joblib.load('/mnt/data/best_gradient_boosting_model.pkl')
+#MODEL_PATH = "best_gradient_boosting_model.pkl"
 
+# Safely load model
+if os.path.exists(MODEL_PATH):
+    try:
+        model = joblib.load(MODEL_PATH)
+    except Exception as e:
+        st.error(f"❌ Failed to load model: {e}")
+        st.stop()
+else:
+    st.error(f"❌ Model file not found at path: {MODEL_PATH}")
+    st.stop()
 
-model = load_model()
+#model = load_model()
 
 st.title("🏥 Insurance Charges Prediction App")
 st.subheader("Enter the following details:")
