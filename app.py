@@ -10,20 +10,11 @@ import os
 # Load saved model
 #model = joblib.load(r'best_gradient_boosting_model.pkl')
 #model = joblib.load('/mnt/data/best_gradient_boosting_model.pkl')
-#MODEL_PATH = "best_gradient_boosting_model.pkl"
-
-# Safely load model
-if os.path.exists(MODEL_PATH):
-    try:
-        model = joblib.load(MODEL_PATH)
-    except Exception as e:
-        st.error(f"❌ Failed to load model: {e}")
-        st.stop()
-else:
-    st.error(f"❌ Model file not found at path: {MODEL_PATH}")
-    st.stop()
-
+#MODEL_PATH = "best_gradient_boosting_model.pk
 #model = load_model()
+
+
+model = joblib.load('best_gradient_boosting_model.pkl')
 
 st.title("🏥 Insurance Charges Prediction App")
 st.subheader("Enter the following details:")
