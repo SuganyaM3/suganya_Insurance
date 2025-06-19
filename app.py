@@ -3,17 +3,6 @@ import numpy as np
 import joblib
 import pickle
 
-# Load model
-#@st.cache_resource
-#def load_model():
-#    return joblib.load("best_gradient_boosting_model.pkl")
-# Load saved model
-#model = joblib.load(r'best_gradient_boosting_model.pkl')
-#model = joblib.load('/mnt/data/best_gradient_boosting_model.pkl')
-#MODEL_PATH = "best_gradient_boosting_model.pk
-#model = load_model()
-
-
 model = joblib.load('best_gradient_boosting_model.pkl')
 
 with open('best_gradient_boosting_model.pkl','rb') as f:
