@@ -1,7 +1,7 @@
 import streamlit as st
 import numpy as np
 import joblib
-import os
+import pickle
 
 # Load model
 #@st.cache_resource
@@ -16,6 +16,9 @@ import os
 
 model = joblib.load('best_gradient_boosting_model.pkl')
 
+with open('best_gradient_boosting_model.pkl','rb') as f:
+    model=pickle.load(f)
+    
 st.title("🏥 Insurance Charges Prediction App")
 st.subheader("Enter the following details:")
 
