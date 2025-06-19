@@ -1,3 +1,5 @@
 streamlit
 joblib
 numpy
+from sklearn.ensemble import GradientBoostingRegressor
+scikit-learn==1.3.2
