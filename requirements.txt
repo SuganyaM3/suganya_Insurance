@@ -1,6 +1,6 @@
 pandas==2.2.2
 pip install -r
-numpy>=1.24.0
+numpy=3.0
 scikit-learn
 joblib
 pickle
